@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DDropDownView'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'A filter view from top.'
   s.description      = 'A filter view from top.'
   s.homepage         = 'https://github.com/wuvdan/DDropDownView'

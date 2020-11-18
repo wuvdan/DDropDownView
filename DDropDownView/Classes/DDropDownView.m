@@ -241,6 +241,7 @@
     } completion:^(BOOL finished) {
         self.lastShowViewHeight = 0;
         self.isOpening = NO;
+        self.backgroundButton.frame = CGRectMake(0, CGRectGetMaxY(self.frame), self.bounds.size.width, 0);
         for (DDropDownTitleControl *view in self.titleStackView.arrangedSubviews) {
             view.selected = NO;
         }
