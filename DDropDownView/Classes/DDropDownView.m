@@ -210,6 +210,9 @@
             self.backgroundButton.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
         }
         
+        [self.superview bringSubviewToFront:self.backgroundButton];
+        [self.superview bringSubviewToFront:self.containerView];
+        
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
         [UIView setAnimationRepeatAutoreverses:NO];
