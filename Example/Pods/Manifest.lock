@@ -1,0 +1,16 @@
+PODS:
+  - DDropDownView (0.1.0)
+
+DEPENDENCIES:
+  - DDropDownView (from `../`)
+
+EXTERNAL SOURCES:
+  DDropDownView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  DDropDownView: 639becf726a0fd347cfb1485e308327754e77118
+
+PODFILE CHECKSUM: b28980457a2acdb802a5e58451fa3b7d72da8fc7
+
+COCOAPODS: 1.9.1

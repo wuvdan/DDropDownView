@@ -1,0 +1,6 @@
+framework module Pods_DDropDownView_Example {
+  umbrella header "Pods-DDropDownView_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

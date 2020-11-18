@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		486657772565086C009490D9 /* SecondView.m in Sources */ = {isa = PBXBuildFile; fileRef = 486657712565086C009490D9 /* SecondView.m */; };
+		486657782565086C009490D9 /* ThirdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 486657732565086C009490D9 /* ThirdView.m */; };
+		486657792565086C009490D9 /* FirstView.m in Sources */ = {isa = PBXBuildFile; fileRef = 486657752565086C009490D9 /* FirstView.m */; };
 		5C2CF69FA8C6922397B73378 /* Pods_DDropDownView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CACEA17AB6BEEF6C3537B104 /* Pods_DDropDownView_Tests.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -39,8 +42,14 @@
 /* Begin PBXFileReference section */
 		00B188C715E40162A1985C89 /* Pods_DDropDownView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDropDownView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		125C36A6879BD8F5A1B70007 /* Pods-DDropDownView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDropDownView_Tests.release.xcconfig"; path = "Target Support Files/Pods-DDropDownView_Tests/Pods-DDropDownView_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		486657712565086C009490D9 /* SecondView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondView.m; sourceTree = "<group>"; };
+		486657722565086C009490D9 /* ThirdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdView.h; sourceTree = "<group>"; };
+		486657732565086C009490D9 /* ThirdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdView.m; sourceTree = "<group>"; };
+		486657742565086C009490D9 /* SecondView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondView.h; sourceTree = "<group>"; };
+		486657752565086C009490D9 /* FirstView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstView.m; sourceTree = "<group>"; };
+		486657762565086C009490D9 /* FirstView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstView.h; sourceTree = "<group>"; };
 		497594164573F4A61F800347 /* Pods-DDropDownView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDropDownView_Example.debug.xcconfig"; path = "Target Support Files/Pods-DDropDownView_Example/Pods-DDropDownView_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		59CA05D4763542C201F380CD /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		59CA05D4763542C201F380CD /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* DDropDownView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDropDownView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -63,8 +72,8 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77D11A285BE4725785B76066 /* Pods-DDropDownView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDropDownView_Tests.debug.xcconfig"; path = "Target Support Files/Pods-DDropDownView_Tests/Pods-DDropDownView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		93D54C31BE6C06A031099C6B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		BAF266C4551ACC877A5834ED /* DDropDownView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = DDropDownView.podspec; path = ../DDropDownView.podspec; sourceTree = "<group>"; };
+		93D54C31BE6C06A031099C6B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		BAF266C4551ACC877A5834ED /* DDropDownView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DDropDownView.podspec; path = ../DDropDownView.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C9F36218E28AAC872E5420B5 /* Pods-DDropDownView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDropDownView_Example.release.xcconfig"; path = "Target Support Files/Pods-DDropDownView_Example/Pods-DDropDownView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		CACEA17AB6BEEF6C3537B104 /* Pods_DDropDownView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDropDownView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -132,6 +141,12 @@
 		6003F593195388D20070C39A /* Example for DDropDownView */ = {
 			isa = PBXGroup;
 			children = (
+				486657762565086C009490D9 /* FirstView.h */,
+				486657752565086C009490D9 /* FirstView.m */,
+				486657742565086C009490D9 /* SecondView.h */,
+				486657712565086C009490D9 /* SecondView.m */,
+				486657722565086C009490D9 /* ThirdView.h */,
+				486657732565086C009490D9 /* ThirdView.m */,
 				6003F59C195388D20070C39A /* DAppDelegate.h */,
 				6003F59D195388D20070C39A /* DAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -193,7 +208,6 @@
 				77D11A285BE4725785B76066 /* Pods-DDropDownView_Tests.debug.xcconfig */,
 				125C36A6879BD8F5A1B70007 /* Pods-DDropDownView_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -258,6 +272,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -366,7 +381,10 @@
 			files = (
 				6003F59E195388D20070C39A /* DAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* DViewController.m in Sources */,
+				486657782565086C009490D9 /* ThirdView.m in Sources */,
+				486657772565086C009490D9 /* SecondView.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				486657792565086C009490D9 /* FirstView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +515,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DDropDownView/DDropDownView-Prefix.pch";
 				INFOPLIST_FILE = "DDropDownView/DDropDownView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -513,6 +532,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DDropDownView/DDropDownView-Prefix.pch";
 				INFOPLIST_FILE = "DDropDownView/DDropDownView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
