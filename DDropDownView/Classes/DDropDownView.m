@@ -20,6 +20,7 @@
     configure.backMaskColor = [UIColor colorWithWhite:0 alpha:0.6];
     configure.backContainerColor = [UIColor whiteColor];
     configure.bottomShadowColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.04];
+    configure.bottomRadius = 0;
     return configure;
 }
 @end
@@ -210,8 +211,8 @@
             self.backgroundButton.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
         }
         
-        [self.superview bringSubviewToFront:self.backgroundButton];
-        [self.superview bringSubviewToFront:self.containerView];
+        [UIApplication.sharedApplication.keyWindow bringSubviewToFront:self.backgroundButton];
+        [UIApplication.sharedApplication.keyWindow bringSubviewToFront:self.containerView];
         
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
@@ -252,9 +253,17 @@
 }
 
 - (void)didMoveToSuperview {
-    UIView *parentView = self.superview;
     self.backgroundButton.frame = CGRectMake(0, CGRectGetMaxY(self.frame), self.bounds.size.width, 0);
     self.containerView.frame = CGRectMake(0, CGRectGetMaxY(self.frame), self.bounds.size.width, 0);
+    UIView *parentView;
+    if (UIApplication.sharedApplication.keyWindow) {
+        parentView = UIApplication.sharedApplication.keyWindow;
+    } else if (UIApplication.sharedApplication.delegate.window) {
+        parentView = UIApplication.sharedApplication.delegate.window;
+    } else {
+        parentView = self.superview;
+    }
+    
     [parentView addSubview:self.backgroundButton];
     [parentView addSubview:self.containerView];
     [parentView bringSubviewToFront:self];
@@ -275,6 +284,10 @@
         _containerView = [[UIView alloc] init];
         _containerView.backgroundColor = self.configure.backContainerColor;
         _containerView.clipsToBounds = YES;
+        if (@available(iOS 11.0, *)) {
+            _containerView.layer.cornerRadius = self.configure.bottomRadius;
+            _containerView.layer.maskedCorners = kCALayerMinXMaxYCorner | kCALayerMaxXMaxYCorner;
+        }
     }
     return _containerView;
 }

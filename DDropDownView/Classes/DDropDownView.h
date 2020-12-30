@@ -34,6 +34,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIColor *backContainerColor;
 /// 底部阴影颜色 默认为黑色 透明为0.04
 @property (nonatomic, strong) UIColor *bottomShadowColor;
+/// 底部圆角 默认为 18
+@property (nonatomic, assign) CGFloat bottomRadius;
 
 + (DDropDownConfigure *)defalut;
 @end
