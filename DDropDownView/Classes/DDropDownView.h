@@ -36,6 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIColor *bottomShadowColor;
 /// 底部圆角 默认为 18
 @property (nonatomic, assign) CGFloat bottomRadius;
+/// frame top y
+@property (nonatomic, assign) CGFloat topY;
 
 + (DDropDownConfigure *)defalut;
 @end
@@ -53,7 +55,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setTiteWithText:(NSString *)text titleIndex:(NSUInteger)titleIndex;
 /// 关闭筛选窗口
 - (void)closeView;
-
+/// 刷新高度
+- (void)reloadViewByHeight:(CGFloat)height;
 @end
 
 NS_ASSUME_NONNULL_END

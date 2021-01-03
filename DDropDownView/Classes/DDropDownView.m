@@ -21,6 +21,7 @@
     configure.backContainerColor = [UIColor whiteColor];
     configure.bottomShadowColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.04];
     configure.bottomRadius = 0;
+    configure.topY = 0;
     return configure;
 }
 @end
@@ -202,9 +203,9 @@
     if (self.delegate &&
         [self.delegate respondsToSelector:@selector(heightOfShowViewInDropDownView:didTappedItemIndex:)]) {
         CGFloat showViewHeight = [self.delegate heightOfShowViewInDropDownView:self didTappedItemIndex:sender.tag];
-                
-        self.backgroundButton.frame = CGRectMake(0, CGRectGetMaxY(self.frame), self.bounds.size.width, CGRectGetHeight(self.superview.frame) - CGRectGetMaxY(self.frame));
-        self.containerView.frame = CGRectMake(0, CGRectGetMaxY(self.frame), self.bounds.size.width, self.lastShowViewHeight);
+        
+        self.backgroundButton.frame = CGRectMake(0, self.configure.topY, self.bounds.size.width, CGRectGetHeight(self.window.frame) - self.configure.topY);
+        self.containerView.frame = CGRectMake(0, self.configure.topY, self.bounds.size.width, self.lastShowViewHeight);
         self.containerView.subviews.firstObject.frame = CGRectMake(0, 0, self.bounds.size.width, self.lastShowViewHeight);
             
         if (!self.isOpening) {
@@ -219,7 +220,7 @@
         [UIView setAnimationRepeatAutoreverses:NO];
         [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self cache:YES];
         [UIView setAnimationDuration:0.35];
-        self.containerView.frame = CGRectMake(0, CGRectGetMaxY(self.frame), self.bounds.size.width, showViewHeight);
+        self.containerView.frame = CGRectMake(0, self.configure.topY, self.bounds.size.width, showViewHeight);
         self.containerView.subviews.firstObject.frame = CGRectMake(0, 0, self.bounds.size.width, showViewHeight);
         self.backgroundButton.backgroundColor = self.configure.backMaskColor;
         [UIView commitAnimations];
@@ -229,20 +230,37 @@
 
 #pragma Public Method
 
+/// 刷新高度
+- (void)reloadViewByHeight:(CGFloat)height {
+    CGFloat MaxY = self.configure.topY;
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationRepeatAutoreverses:NO];
+    [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self cache:YES];
+    [UIView setAnimationDuration:0.35];
+    self.containerView.frame = CGRectMake(0, MaxY, self.bounds.size.width, height);
+    self.containerView.subviews.firstObject.frame = CGRectMake(0, 0, self.bounds.size.width, height);
+    self.backgroundButton.backgroundColor = self.configure.backMaskColor;
+    [UIView commitAnimations];
+    self.lastShowViewHeight = height;
+}
+
 - (void)setTiteWithText:(NSString *)text titleIndex:(NSUInteger)titleIndex {
     DDropDownTitleControl *view = self.titleStackView.arrangedSubviews[titleIndex];
     view.titleLabel.text = text;
 }
 
 - (void)closeView {
+    CGFloat MaxY = self.configure.topY;
+
     [UIView animateWithDuration:0.3 delay:0 options:(UIViewAnimationOptionLayoutSubviews) animations:^{
-        self.containerView.frame = CGRectMake(0, CGRectGetMaxY(self.frame), self.bounds.size.width, 0);
+        self.containerView.frame = CGRectMake(0, MaxY, self.bounds.size.width, 0);
         self.containerView.subviews.firstObject.frame = CGRectMake(0, 0, self.bounds.size.width, 0);
         self.backgroundButton.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
     } completion:^(BOOL finished) {
         self.lastShowViewHeight = 0;
         self.isOpening = NO;
-        self.backgroundButton.frame = CGRectMake(0, CGRectGetMaxY(self.frame), self.bounds.size.width, 0);
+        self.backgroundButton.frame = CGRectMake(0, MaxY, self.bounds.size.width, 0);
         for (DDropDownTitleControl *view in self.titleStackView.arrangedSubviews) {
             view.selected = NO;
         }
@@ -253,20 +271,24 @@
 }
 
 - (void)didMoveToSuperview {
-    self.backgroundButton.frame = CGRectMake(0, CGRectGetMaxY(self.frame), self.bounds.size.width, 0);
-    self.containerView.frame = CGRectMake(0, CGRectGetMaxY(self.frame), self.bounds.size.width, 0);
-    UIView *parentView;
-    if (UIApplication.sharedApplication.keyWindow) {
-        parentView = UIApplication.sharedApplication.keyWindow;
-    } else if (UIApplication.sharedApplication.delegate.window) {
-        parentView = UIApplication.sharedApplication.delegate.window;
-    } else {
-        parentView = self.superview;
-    }
     
-    [parentView addSubview:self.backgroundButton];
-    [parentView addSubview:self.containerView];
-    [parentView bringSubviewToFront:self];
+    CGFloat MaxY = self.configure.topY;
+    
+    self.backgroundButton.frame = CGRectMake(0, MaxY, self.bounds.size.width, 0);
+    self.containerView.frame = CGRectMake(0, MaxY, self.bounds.size.width, 0);
+    [UIApplication.sharedApplication.keyWindow addSubview:self.backgroundButton];
+    [UIApplication.sharedApplication.keyWindow addSubview:self.containerView];
+    [UIApplication.sharedApplication.keyWindow bringSubviewToFront:self];
+}
+
+- (UIViewController*)getViewController {
+  for (UIView* next = [self superview]; next; next = next.superview) {
+    UIResponder* nextResponder = [next nextResponder];
+    if ([nextResponder isKindOfClass:[UIViewController class]]) {
+      return (UIViewController*)nextResponder;
+    }
+  }
+  return nil;
 }
 
 #pragma mark - Getter

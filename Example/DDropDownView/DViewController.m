@@ -39,10 +39,16 @@ ThirdViewDelegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+//    self.navigationController.navigationBarHidden = YES;
     self.title = @"Example";
     self.view.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
     
-    self.titleView = [[DDropDownView alloc] init];
+    self.titleView = [[DDropDownView alloc] initWithConfigure:({
+        DDropDownConfigure *conf = [DDropDownConfigure defalut];
+        conf.bottomRadius = 18;
+        conf.topY = 88 + 55;
+        conf;
+    })];
     self.titleView.backgroundColor = [UIColor whiteColor];
     self.titleView.delegate = self;
     self.titleView.frame = CGRectMake(0, 88, UIScreen.mainScreen.bounds.size.width, 55);
